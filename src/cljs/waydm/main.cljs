@@ -12,4 +12,3 @@
   (println (:first @app-state)))
 
 (r/render [heading] (js/document.querySelector "#app"))
-(hello)

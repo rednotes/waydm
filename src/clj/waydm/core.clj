@@ -28,9 +28,7 @@
    (head)
    [:body
     mount-target
-    (include-js "/js/out/goog/base.js")
-    (include-js "/js/app.js")
-    [:script "goog.require('waydm.main')"]]))
+    (include-js "/js/app.js")]))
 
 (defn handler [req]
   {:status 200

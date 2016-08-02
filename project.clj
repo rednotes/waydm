@@ -27,9 +27,11 @@
                        {:source-paths ["src/cljs" "src/cljc"]
                         :figwheel true
                         :compiler
-                        {:optimizations :none
+                        {:main "waydm.main"
+                         :optimizations :none
+                         :asset-path "/js"
                          :output-to "resources/public/js/app.js"
-                         :output-dir "resources/public/js/out/"
+                         :output-dir "resources/public/js/"
                          :pretty-print true
                          :source-map true}}}}
 
