@@ -10,7 +10,10 @@
                  [org.clojure/clojurescript "1.9.93"]
                  [reagent "0.6.0-SNAPSHOT"]
                  [mount "0.1.11-SNAPSHOT"]
-                 [com.taoensso/timbre "4.7.3"]]
+                 [com.taoensso/timbre "4.7.3"]
+                 [http-kit "2.2.0"]
+                 [hiccup "1.0.5"]
+                 [compojure "1.5.1"]]
 
   :plugins [[lein-cljsbuild "1.1.4-SNAPSHOT"]
             [lein-figwheel "0.5.5-SNAPSHOT"]]

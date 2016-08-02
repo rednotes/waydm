@@ -5,7 +5,7 @@
             [monger
              [collection :as mc]
              [core :as mg]]
-            [waydm.config :refer [db-uri]]
+            [waydm.config :refer [app-config]]
             [monger.joda-time]))
 
 (defn connect [uri]
