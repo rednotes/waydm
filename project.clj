@@ -8,14 +8,20 @@
                  [environ "1.0.3"]
                  [clj-time "0.12.0"]
                  [org.clojure/clojurescript "1.9.93"]
-                 [reagent "0.6.0-SNAPSHOT"]]
+                 [reagent "0.6.0-SNAPSHOT"]
+                 [mount "0.1.11-SNAPSHOT"]
+                 [com.taoensso/timbre "4.7.3"]]
 
   :plugins [[lein-cljsbuild "1.1.4-SNAPSHOT"]
             [lein-figwheel "0.5.5-SNAPSHOT"]]
+
   :figwheel {:css-dirs ["resources/public/assets"]}
 
+  :source-paths ["src/clj" "src/cljc"]
+
+
   :cljsbuild {:builds {:dev
-                       {:source-paths ["src/cljs"]
+                       {:source-paths ["src/cljs" "src/cljc"]
                         :figwheel true
                         :compiler
                         {:optimizations :none

@@ -12,9 +12,9 @@
   (def conn (:conn (mg/connect-via-uri uri)))
   (def db (mg/get-db conn "rednotes")))
 
-(connect db-uri)
+;; (connect db-uri)
 
-(mg/disconnect conn)
+;; (mg/disconnect conn)
 
 ;; quotations
 (def quotations "quotations")
@@ -28,12 +28,12 @@
 (defn insert-quote [quote]
   (mc/insert db quotations quote))
 
-(insert-quote sample-quote)
+;; (insert-quote sample-quote)
 
-(def id (:_id (first (mc/find-maps db quotations))))
-(mc/update-by-id db quotations id sample-quote)
+;; (def id (:_id (first (mc/find-maps db quotations))))
+;; (mc/update-by-id db quotations id sample-quote)
 
-(println (vec (mc/find-maps db quotations {} {:text true :_id false})))
+;; (println (vec (mc/find-maps db quotations {} {:text true :_id false})))
 
 ;; links
 (def links "links")
@@ -45,14 +45,14 @@
 (defn insert-link [link]
   (mc/insert db links link))
 
-(insert-link sample-link)
-(mc/update-by-id db links lid sample-link)
+;; (insert-link sample-link)
+;; (mc/update-by-id db links lid sample-link)
 
-(def lid (->> links
-              (mc/find-maps db)
-              (first)
-              ;; (:_id)
-              ))
+;; (def lid (->> links
+;;               (mc/find-maps db)
+;;               (first)
+;;               ;; (:_id)
+;;               ))
 
 
 (let [now (l/local-now)
@@ -73,5 +73,5 @@
   )
 
 
-main-goal
-(mc/insert db "goals" main-goal)
+;; main-goal
+;; (mc/insert db "goals" main-goal)
