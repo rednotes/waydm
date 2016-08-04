@@ -3,10 +3,12 @@
 
 (enable-console-print!)
 
-(def app-state (r/atom {:first "empty"}))
+(defonce app-state (r/atom {:first "empty"}))
 
 (defn heading []
-  [:h1 "test"])
+  [:div.container
+   [:h1 "Hello my dear friend"]
+   [:h2 (:first @app-state)]])
 
 (defn hello []
   (println (:first @app-state)))

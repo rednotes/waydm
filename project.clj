@@ -13,7 +13,9 @@
                  [com.taoensso/timbre "4.7.3"]
                  [http-kit "2.2.0"]
                  [hiccup "1.0.5"]
-                 [compojure "1.5.1"]]
+                 [compojure "1.5.1"]
+                 [figwheel-sidecar "0.5.5-SNAPSHOT"]
+                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]]
 
   :plugins [[lein-cljsbuild "1.1.4-SNAPSHOT"]
             [lein-figwheel "0.5.5-SNAPSHOT"]]
