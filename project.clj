@@ -15,7 +15,9 @@
                  [hiccup "1.0.5"]
                  [compojure "1.5.1"]
                  [figwheel-sidecar "0.5.5-SNAPSHOT"]
-                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]]
+                 [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
+                 [ring-webjars "0.1.1"]
+                 [org.webjars/bootstrap "4.0.0-alpha.2"]]
 
   :plugins [[lein-cljsbuild "1.1.4-SNAPSHOT"]
             [lein-figwheel "0.5.5-SNAPSHOT"]]

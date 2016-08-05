@@ -3,46 +3,29 @@
   (:require [compojure
              [core :refer [defroutes GET]]
              [route :refer [not-found resources]]]
-            [hiccup.page :refer [html5 include-css include-js]]
             [mount.core :refer [defstate]]
             [org.httpkit.server :as httpkit]
             [taoensso.timbre :as log]
-            [waydm.config :refer [app-config]]))
+            [waydm.config :refer [app-config]]
+            [waydm.figwheel :refer [start-fw]]
+            [waydm.page :refer [page]]
+            [ring.middleware.webjars :refer [wrap-webjars]]
+            [ring.middleware.content-type :refer [wrap-content-type]]))
 
-(defn head []
-  [:head
-   [:meta {:charset "utf-8"}]
-   [:meta {:name "viewport"
-           :content "width=device-width, initial-scale=1"}]
-   (include-css "/assets/site.css")])
-
-(def mount-target
-  [:div#app
-   [:h3 "ClojureScript has not been compiled!"]
-   [:p "please run "
-    [:b "lein figwheel"]
-    " in order to start the compiler"]])
-
-(def loading-page
-  (html5
-   (head)
-   [:body
-    mount-target
-    (include-js "/js/app.js")]))
-
-(defn handler [req]
-  {:status 200
-   :headers {"Content-Type" "text/html"}
-   :body loading-page})
 
 
 (defroutes routes
-  (GET "/test" handler)
-  (GET "/" request loading-page)
+  (GET "/" request (page))
   (resources "/"))
 
+(defn app []
+  (-> #'routes
+      wrap-webjars
+      wrap-content-type
+      ))
+
 (defstate http-server
-  :start (httpkit/run-server routes {:port (:server-port app-config)})
+  :start (httpkit/run-server (app) {:port (:server-port app-config)})
   :stop (http-server :timeout 100))
 
 (defn restart-server []
@@ -50,5 +33,9 @@
   (mount.core/start))
 
 (defn -main[& args]
-  (println "I'm loaded"))
+  (mount.core/start))
 
+(comment
+  (restart-server)
+  (start-fw)
+  )

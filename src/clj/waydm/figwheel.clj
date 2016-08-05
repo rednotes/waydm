@@ -1,9 +1,10 @@
 (ns waydm.figwheel
   (:require [figwheel-sidecar.repl-api :refer :all]))
 
-(defn start-fw []
+(defn start-fw [& rest]
   (start-figwheel!)
-  (cljs-repl))
+  (if (not-empty rest)
+    (cljs-repl)))
 
 
-(start-fw)
+;; (start-fw)

@@ -1,16 +1,18 @@
 (ns waydm.main
-  (:require [reagent.core :as r]))
+  (:require [reagent.core :as r])
+  (:require-macros [reagent.ratom :refer [reaction]]))
 
 (enable-console-print!)
 
-(defonce app-state (r/atom {:first "empty"}))
+(defonce app-db (r/atom {:first "empty"}))
+
 
 (defn heading []
   [:div.container
-   [:h1 "Hello my dear friend"]
-   [:h2 (:first @app-state)]])
+   [:h1 "Sample header"]])
+
 
 (defn hello []
-  (println (:first @app-state)))
+  (println (:first @app-db)))
 
 (r/render [heading] (js/document.querySelector "#app"))
