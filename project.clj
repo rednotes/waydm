@@ -17,7 +17,9 @@
                  [figwheel-sidecar "0.5.5-SNAPSHOT"]
                  [com.cemerick/piggieback "0.2.2-SNAPSHOT"]
                  [ring-webjars "0.1.1"]
-                 [org.webjars/bootstrap "4.0.0-alpha.2"]]
+                 [org.webjars/bootstrap "4.0.0-alpha.2"]
+                 [re-frame "0.8.0-SNAPSHOT"]
+                 [binaryage/devtools "0.8.0"]]
 
   :plugins [[lein-cljsbuild "1.1.4-SNAPSHOT"]
             [lein-figwheel "0.5.5-SNAPSHOT"]]
@@ -31,7 +33,8 @@
                        {:source-paths ["src/cljs" "src/cljc"]
                         :figwheel true
                         :compiler
-                        {:main "waydm.main"
+                        {:preloads [devtools.preload]
+                         :main "waydm.main"
                          :optimizations :none
                          :asset-path "/js"
                          :output-to "resources/public/js/app.js"
