@@ -9,6 +9,7 @@ pom.xml.asc
 /.nrepl-port
 .hgignore
 .hg/
-resources/public/js/*
+/resources/public/js/*
+.cljs_rhino_repl/
 profiles.clj
 figwheel_server.log
