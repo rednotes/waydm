@@ -6,5 +6,7 @@
   (if (not-empty rest)
     (cljs-repl)))
 
+(defn stop-fw []
+  (stop-figwheel!))
 
 ;; (start-fw)

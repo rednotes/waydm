@@ -7,11 +7,10 @@
             [org.httpkit.server :as httpkit]
             [taoensso.timbre :as log]
             [waydm.config :refer [app-config]]
-            [waydm.figwheel :refer [start-fw]]
+            [waydm.figwheel :refer [start-fw stop-fw]]
             [waydm.page :refer [page]]
             [ring.middleware.webjars :refer [wrap-webjars]]
             [ring.middleware.content-type :refer [wrap-content-type]]))
-
 
 
 (defroutes routes
@@ -21,8 +20,7 @@
 (defn app []
   (-> #'routes
       wrap-webjars
-      wrap-content-type
-      ))
+      wrap-content-type))
 
 (defstate http-server
   :start (httpkit/run-server (app) {:port (:server-port app-config)})
